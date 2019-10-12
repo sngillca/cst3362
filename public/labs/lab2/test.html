@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Sign Up Page</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<!--        used for css boot strap-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+    <div class="p-3 mb-2 bg-light text-dark col-lg-7">
+            <h1> Sign Up</h1>
+    <!--        we are using post to ensure that passwords don't show in the url-->
+            <form id="signupForm"  action="welcome.html" method="get">
+    <!--            First Name: <input type="text"  name="fName"><br>-->
+                <div class="form-group row">
+                    <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
+                    <div class="col-sm-10">
+                        <input type="text"  id="firstName" name="fName"><br>
+                    </div>
+                </div>
+    <!--            Last Name:  <input type="text"  name="lName"><br>-->
+                <div class="form-group row">
+                    <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="lastName" name="lName"><br>
+                    </div>
+                </div>
+    <!--            Gender:     <input type="radio" name="gender" value="m"> Male<br>-->
+    <!--                        <input type="radio" name="gender" value="f"> Female<br>-->
+
+                <fieldset class="form-group">
+                    <div class="row">
+                        <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" id="gender1" value="m">
+                                <label class="form-check-label" for="gender1">
+                                    Male
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" id="gender2" value="f">
+                                <label class="form-check-label" for="gender2">
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+    <!--            Zip Code:  <input type="text" name="zip" id="zip"><br>-->
+                <div class="form-group row">
+                    <label for="zip" class="col-sm-2 col-form-label">Zip Code</label>
+                    <div class="col-sm-10">
+                        <input type="text"  name="zip" id="zip"><br>
+                    </div>
+                </div>
+    <!--            City:      <span id="city"></span><br>-->
+    <!--            Latitude:  <span id="latitude"></span><br>-->
+    <!--            Longitude: <span id="longitude"></span><br><br>-->
+                <fieldset disabled>
+                    <div class="form-group row">
+                        <label for="city" class="col-sm-2 col-form-label">City</label>
+                        <div class="col-sm-10">
+                            <span id="city"></span><br>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="latitude" class="col-sm-2 col-form-label">Latitude</label>
+                        <div class="col-sm-10">
+                            <span id="latitude"></span><br>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="longitude" class="col-sm-2 col-form-label">Latitude</label>
+                        <div class="col-sm-10">
+                            <span id="longitude"></span><br><br>
+                        </div>
+                    </div>
+
+                </fieldset>
+    <!--            State:-->
+    <!--            <select id="state" name="state">-->
+    <!--                <option> Select One </option>-->
+    <!--                <option value="ca"> California </option>-->
+    <!--                <option value="ny"> New York   </option>-->
+    <!--                <option value="tx"> Texas      </option>-->
+    <!--            </select><br>-->
+                <div class="form-group row">
+                    <label for="state" class="col-sm-2 col-form-label">State</label>
+                    <div class="col-sm-2">
+                        <select class="custom-select" id="state" name="state">
+                            <option selected>Select One</option>
+                        </select>
+                    </div>
+                </div>
+    <!--            Select a County: <select id="county"></select><br>-->
+                <div class="form-group row">
+                    <label for="state" class="col-sm-2 col-form-label">County</label>
+                    <div class="col-sm-2">
+                        <select class="custom-select" id="county" name="county">
+                            <option selected>Select One</option>
+                        </select>
+                    </div>
+                </div>
+    <!--            Desired Username: <input type="text" id="username" name="username"><br>-->
+                <div class="form-group row">
+                    <label for="username" class="col-sm-2 col-form-label">Desired Username</label>
+                    <div class="col-sm-10">
+                        <input type="text"  name="username" id="username">
+                    </div>
+                </div>
+                    <span id="usernameError"></span> <br />
+    <!--            Password:         <input type="password" id="password" name="password"><br>-->
+                <div class="form-group row">
+                    <label for="password" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                        <input type="text"  name="password" id="password">
+                    </div>
+                </div>
+    <!--            Password Again:   <input type="password" id="passwordAgain">-->
+                <div class="form-group row">
+                    <label for="passwordAgain" class="col-sm-2 col-form-label">Password Again</label>
+                    <div class="col-sm-10">
+                        <input type="text"  name="passwordAgain" id="passwordAgain">
+                    </div>
+                </div>
+                    <span id="passwordAgainError"></span> <br /><br>
+
+                <input type="submit" value="Sign up!">
+            </form>
+        </div>
+            <script>
+            // used to keep track if username is available or not
+            var usernameAvailable = false;
+             // Display City from API after typing a zip code
+            $("#zip").on("change",function() {
+                //alert($("#zip").val());
+                $.ajax({
+                    method: "GET",
+                    url: "https://cst336.herokuapp.com/projects/api/cityInfoAPI.php",
+                    dataType: "JSON",
+                    data: {"zip" :$("#zip").val()},
+                    success: function(result,status) {
+                         //alert(result.latitude);
+                         //console.log(result);
+                        $("#city").html(result.city);
+                        $("#latitude").html(result.latitude);
+                        $("#longitude").html(result.longitude);
+                    }
+                });//ajax
+            }); // zip
+            //When the page loads to populate the states.
+            $(document).ready(function() {
+                $.ajax({
+                    method: "GET",
+                    url: "https://cst336.herokuapp.com/projects/api/state_abbrAPI.php",
+                    dataType: "json",
+                    data:{"state" :$("#state").val()},
+                    success: function(result,status) {
+                        $("#state").html("<option> Select One </option>");
+                        // generates the drop down list with counties based off of the state
+                        for (let i=0; i < result.length; i++) {
+                            $("#state").append("<option>" + result[i].usps + "</option>");
+                        }
+                    }
+                });
+            }); // document ready
+            $("#state").on("change", function() {
+                // alert($("#state").val());
+                $.ajax({
+                    method: "GET",
+                    url: "https://cst336.herokuapp.com/projects/api/countyListAPI.php",
+                    dataType: "json",
+                    data: { "state": $("#state").val() },
+                    success: function(result,status) {
+                         //alert(result[0].county);
+                        // resets the list of counties when a new state is chosen
+                        $("#county").html("<option> Select One </option>");
+                        // generates the drop down list with counties based off of the state
+                        for (let i=0; i < result.length; i++) {
+                            $("#county").append("<option>" + result[i].county + "</option>");
+                        }
+                    }
+                });//ajax
+            }); //state
+            // Checks to see if the username is available for use
+             $("#username").change(function() {
+                 //alert($("#username").val());
+                 $.ajax({
+                     method: "GET",
+                     url: "https://cst336.herokuapp.com/projects/api/usernamesAPI.php",
+                     dataType: "json",
+                     data: { "username":$("#username").val() },
+                     success: function(result,status) {
+                         if(result.available){
+                             $("#usernameError").html("Username is available!");
+                             $("#usernameError").css('color', 'green');
+                             usernameAvailable = true;
+                         }
+                         else {
+                             $("#usernameError").html("Username is unavailable!");
+                             $("#usernameError").css('color', 'red');
+                             usernameAvailable = false;
+                         }
+                     }
+                 });//ajax
+             }); //username
+            $("#signupForm").on("submit", function(event) {
+                // alert("submitting form...")
+                if(!isFormValid()) {
+                    event.preventDefault();
+                }
+                // if(!isFormValid()) {
+                //     event.preventDefault();
+                // }
+            }); // signupForm
+            function isFormValid(){
+                isValid = true;
+                // check if username is available
+                if(!usernameAvailable) {
+                    isValid = false;
+                }
+                // checks if username is not blank
+                if($("#username").val().length == 0) {
+                    isValid = false;
+                    $("#usernameError").html("Username is required");
+                }
+                // check to see if both passwords matches
+                if($("#password").val() != $("#passwordAgain").val()) {
+                    $("#passwordAgainError").html("Password Mismatch!");
+                    $("#passwordAgainError").css('color', 'red');
+                    isValid = false;
+                }
+                if($("#password").val().length < 6) {
+                    isvalid = false;
+                    $("#passwordAgainError").html("Password cannot be less than 6 character!!!")
+                    $("#passwordAgainError").css('color', 'red');
+                }
+                return isValid;
+            }
+        </script>
+<!--        &lt;!&ndash; jQuery first, then Popper.js, then Bootstrap JS &ndash;&gt;-->
+<!--        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+<!--        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>-->
+<!--        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
+    </body>
+</html>`
