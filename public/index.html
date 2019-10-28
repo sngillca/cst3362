@@ -1,4 +1,93 @@
 <!DOCTYPE html>
 <html>
-    <h1>fhdsfksd 9102</h1>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Pictionary</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js" ></script> 
+   <link rel = "stylesheet"
+   type = "text/css"
+   href = "style.css" />
+
+    <script> 
+    /*global $*/
+
+    $(document).ready(function(){
+    
+    $("#searchBtn").on("click", search);
+    $("#gradePic").on("click", gradePic);
+
+    function search(){
+            $.ajax({
+
+                method: "GET",
+                url: "https://pixabay.com/api/",
+                dataType: "json",
+                data: { "key":"13954355-8d352cb5d22b3564a293b5bd8","q":$("#keyword").val(), "orientation":"vertical" },
+                success: function(result,status) {
+                 console.log(result);  
+                result.hits = _.shuffle(result.hits);//shuffle all elements in an array
+                //alert(result);
+                $("#images").html(`<img width="500" height="550" src='${result.hits[0].webformatURL}'>  
+                                        <br>Likes: ${result.hits[0].likes}`);
+                                        
+            
+            }   
+            });//ajax
+            
+
+    }//search()
+    
+    function gradePic(){
+        // if($result.hits[0].likes > 10){
+        //     $("#meter").append("<img src ='img/very.png'>");
+        //     alert("more than 10");
+            
+        // }else{
+        //     $("#meter").append("<img src ='img/poor.png'>");
+        //     alert("eujdhwk");
+            
+            
+        // }
+                    $.ajax({
+
+                method: "GET",
+                url: "https://pixabay.com/api/",
+                dataType: "json",
+                data: { "key":"13954355-8d352cb5d22b3564a293b5bd8","q":$("#keyword").val(), "orientation":"vertical" },
+                success: function(result,status) {
+                 console.log(result);  
+                result.hits = _.shuffle(result.hits);//shuffle all elements in an array
+                alert(result.hits[0].likes);
+                // $("#images").html(`<img width="500" height="550" src='${result.hits[0].webformatURL}'>  
+                //                         <br>Likes: ${result.hits[0].likes}`);
+                                        
+            
+            }   
+            });//ajax
+       
+        
+    }
+
+    
+});       
+        
+    </script>
+
+</head>
+
+<body>
+    <h1> Picture the word!</h1>
+    Keyword: <input id="keyword" type="text"></input> <button id="searchBtn"> Search! </button>
+    <br><br>
+    <main style="display:flex; background-color:teal">
+        <div id="images">
+            <span id="meter"> </span>
+        </div>  
+        
+    </main>
+    <button id="gradePic"> grade! </button>
+    
+</body>
 </html>
